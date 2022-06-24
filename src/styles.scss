@@ -2,3 +2,23 @@
 @import '~font-awesome/css/font-awesome.css';
 $fa-font-path : '../node_modules/font-awesome/fonts';
 
+body {
+  font-size: 18px;
+  line-height: 1.58;
+  background: #6699FF;
+  background: -webkit-linear-gradient(to left, #336699, #228899);
+  background: linear-gradient(to left, #336699, #228899);
+  color: #333;
+  padding-bottom: 70px;
+  padding-top: 40px;
+}
+.component-title {
+  color: #228899;
+}
+.sub-para {
+  font-size: small;
+}
+.item-info {
+  margin-bottom: 6px;
+}
+
