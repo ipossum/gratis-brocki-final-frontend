@@ -9,6 +9,7 @@ import {MessageDto, PictureDto} from "./openapi-gen";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  title:string = 'gratis-brocki-final-frontend';
   items:ItemDto[] = [];
 
   constructor(private itemService: ItemControllerService) {}

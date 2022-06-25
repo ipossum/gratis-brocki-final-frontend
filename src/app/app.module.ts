@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ApiModule} from "./openapi-gen";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ApiModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
