@@ -19,6 +19,6 @@ export class AppComponent implements OnInit{
   }
 
   private getItems() {
-    this.itemService.getItems1().subscribe(items => this.items = items);
+    this.itemService.getAllItems().subscribe(items => this.items = items);
   }
 }

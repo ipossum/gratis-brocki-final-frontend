@@ -9,13 +9,16 @@ import {ApiModule} from "./openapi-gen";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import {RouterModule} from "@angular/router";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,10 @@ import { LoginComponent } from './login/login.component';
     ApiModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'items/:itemId', component: ItemComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

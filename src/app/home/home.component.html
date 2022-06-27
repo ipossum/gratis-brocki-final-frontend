@@ -1,0 +1,8 @@
+<div *ngFor="let item of items" style="width: 300px; border-style: outset; float: left; margin:10px; margin-top:20px;padding:10px;">
+  <h2 >{{item.title}}</h2>
+  <img src="./assets/item.png" width="100px" height="100px"/><br><br>
+  <p>Description: {{item.description}}</p>
+  <p>Owner: {{item.userId}}</p>
+  <p>ZipCode: {{item.zipCode}}</p>
+  <a [routerLink]="['/items', item.id]"><button>Details</button></a>
+</div>
