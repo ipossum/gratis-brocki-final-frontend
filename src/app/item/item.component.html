@@ -1,1 +1,37 @@
-<p>item works!</p>
+<div id="#itemDetail" *ngIf="item" style="width:500px">
+  <!--<p> ID: {{item.id}}</p> -->
+  <h2 style="color:#1976d2;">{{item.title}}</h2>
+  <img src="../assets/item.png" width="500px"/><br><br>
+  <h3 style="font-weight: lighter;font-family:'Roboto', Arial, sans-serif;color:#1976d2;">Description</h3>
+  <p>{{item.description}}</p>
+  <p>Category: {{item.category}}</p>
+  <p>Condition: {{item.condition}}</p>
+  <p>Owner: {{item.userId}}</p>
+  <p>PostalCode: {{item.zipCode}}</p>
+</div>
+
+<!--
+<div style="float:left;margin:10px;">
+  <h2> Add / Update Item</h2>
+  <label for="itemTitle">Item Name:</label>
+  <input type="text" id="itemTitle" name="itemTitle" [(ngModel)]="item.title"><br/>
+  <label for="itemTitle">Picture Url:</label>
+  <input type="text" id="itemPicture" name="itemPicture" [(ngModel)]="item.pictures"><br/>
+  <label for="itemTitle">Description:</label>
+  <input type="text" id="itemDescription" name="itemDescription" [(ngModel)]="item.description"><br/>
+  <label for="itemTitle">Category:</label>
+  <input type="text" id="itemCategory" name="itemCategory" [(ngModel)]="item.category"><br/>
+  <label for="itemTitle">Condition:</label>
+  <input type="text" id="itemCondition" name="itemCondition" [(ngModel)]="item.condition"><br/>
+  <label for="itemTitle">Owner:</label>
+  <input type="text" id="itemOwner" name="itemOwner" [(ngModel)]="item.userId"><br/>
+  <label for="itemTitle">Postal Code:</label>
+  <input type="number" id="itemPostalCode" name="itemPostalCode" [(ngModel)]="item.zipCode"><br/>
+  <label for="itemTitle">Forum:</label>
+  <input type="text" id="itemMessages" name="itemMessages" [(ngModel)]="item.messages"><br/>
+
+  <button [hidden]="add" (click)="addItem()">add Item</button>&nbsp;
+  <button [hidden]="edit" (click)="updateItem()">Update Item</button>
+</div>
+-->
+
