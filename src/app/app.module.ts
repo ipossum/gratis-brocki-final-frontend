@@ -8,7 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ApiModule} from "./openapi-gen";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignupComponent } from './signup/signup.component';
-import { UpdateItemComponent } from './item/update/update-item.component';
+import { ItemUpdateComponent } from './item-update/item-update.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
@@ -18,7 +18,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     ItemComponent,
     SignupComponent,
-    UpdateItemComponent,
+    ItemUpdateComponent,
     LoginComponent,
     HomeComponent
   ],

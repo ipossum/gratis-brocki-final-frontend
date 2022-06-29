@@ -4,10 +4,10 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms
 
 @Component({
   selector: 'app-update-item',
-  templateUrl: './update-item.component.html',
-  styleUrls: ['./update-item.component.scss']
+  templateUrl: './item-update.component.html',
+  styleUrls: ['./item-update.component.scss']
 })
-export class UpdateItemComponent implements OnInit {
+export class ItemUpdateComponent implements OnInit {
 
   updateItemForm:any = UntypedFormGroup; //FormGroup;
   submitted = false;
