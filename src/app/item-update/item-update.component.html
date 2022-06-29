@@ -4,53 +4,87 @@
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
           <h5 class="card-title text-center mb-5 fw-light fs-5">Update Item</h5>
-          <!-- Update Item Form -->
-          <form [formGroup]="updateItemForm" (ngSubmit)="onSubmit()">
-
+          <!-- Item Update Form -->
+          <form novalidate
+                (ngSubmit)="onSubmit()"
+                #f="ngForm">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingTitle" formControlName="title"
-                     [ngClass]="{ 'is-invalid': submitted && f.text.errors }">
-              <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
-                <div *ngIf="f.text.errors?.['required']">Title is required</div>
+              <input type="text"
+                     class="form-control"
+                     id="title"
+                     autocomplete="on"
+                     name="title"
+                     [(ngModel)]="model.title"
+                     required
+                     #title="ngModel">
+              <div class="form-control-feedback text-danger"
+                   *ngIf="title.errors && (title.dirty || title.touched)">
+                <p *ngIf="title.errors?.['required']">Title is required</p>
               </div>
-              <label for="floatingTitle">Title</label>
+              <label for="title">Title</label>
             </div>
 
             <div class="form-floating mb-3">
-              <textarea class="form-control textarea" id="floatingTextarea" formControlName="description"
-                        [ngClass]="{ 'is-invalid': submitted && f.text.errors }"></textarea>
-              <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
-                <div *ngIf="f.text.errors?.['required']">Description is required</div>
+              <textarea class="form-control textarea"
+                        id="description"
+                        autocomplete="on"
+                        name="description"
+                        [(ngModel)]="model.description"
+                        required
+                        #description="ngModel">
+                        </textarea>
+              <div class="form-control-feedback text-danger"
+                   *ngIf="description.errors && (description.dirty || description.touched)">
+                <p *ngIf="description.errors?.['required']">Description is required</p>
               </div>
-              <label for="floatingTextarea">Description</label>
+              <label for="description">Description</label>
+            </div>
+
+
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control"
+                     id="zipcode"
+                     autocomplete="on"
+                     name="zipcode"
+                     [(ngModel)]="model.zipCode"
+                     required
+                     #zipcode="ngModel">
+              <div class="form-control-feedback text-danger"
+                   *ngIf="zipcode.errors && (zipcode.dirty || zipcode.touched)">
+                <p *ngIf="zipcode.errors?.['required']">Zip code is required</p>
+              </div>
+              <label for="zipcode">Zip code</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingZip" formControlName="zipCode"
-                     [ngClass]="{ 'is-invalid': submitted && f.text.errors }">
-              <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
-                <div *ngIf="f.text.errors?.['required']">Zip code is required</div>
-              </div>
-              <label for="floatingZip">Zip code</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <select class="form-select" id="floatingCondition" formControlName="condition"
-                      [ngClass]="{ 'is-invalid': submitted && f.text.errors }">
+              <select class="form-select"
+                      id="condition"
+                      autocomplete="on"
+                      name="condition"
+                      [(ngModel)]="model.condition"
+                      required
+                      #condition="ngModel">
                 <option selected></option>
                 <option value="USED">Used</option>
                 <option value="NEW">New</option>
                 <option value="DEFECTIVE">Defective</option>
               </select>
-              <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
-                <div *ngIf="f.text.errors?.['required']">Description is required</div>
+              <div class="form-control-feedback text-danger"
+                   *ngIf="condition.errors && (condition.dirty || condition.touched)">
+                <p *ngIf="condition.errors?.['required']">Condition is required</p>
               </div>
-              <label for="floatingCondition">Condition</label>
+              <label for="condition">Condition</label>
             </div>
 
             <div class="form-floating mb-3">
-              <select class="form-select" id="floatingCategory" formControlName="category"
-                      [ngClass]="{ 'is-invalid': submitted && f.text.errors }">
+              <select class="form-select"
+                      id="category"
+                      autocomplete="on"
+                      name="category"
+                      [(ngModel)]="model.category"
+                      required
+                      #category="ngModel">
                 <option selected></option>
                 <option value="CHILDREN">Children</option>
                 <option value="CLOTHING">Clothing</option>
@@ -60,20 +94,42 @@
                 <option value="VEHICLE">Vehicle</option>
                 <option value="OTHER">Other</option>
               </select>
-              <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
-                <div *ngIf="f.text.errors?.['required']">Category is required</div>
+              <div class="form-control-feedback text-danger"
+                   *ngIf="category.errors && (category.dirty || category.touched)">
+                <p *ngIf="category.errors?.['required']">Category is required</p>
               </div>
-              <label for="floatingCategory">Category</label>
+              <label for="category">Category</label>
             </div>
 
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Replace picture</label>
-              <input class="form-control" type="file" id="formFile">
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control"
+                     id="itemId"
+                     autocomplete="on"
+                     name="itemId"
+                     [(ngModel)]="itemId">
+              <label for="itemId">Item ID</label>
             </div>
+
+            <!--<div class="mb-3">
+              <label for="picture" class="form-label">Replace picture</label>
+              <input type="file"
+                     class="form-control"
+                     id="picture"
+                     name="picture"
+                     [(ngModel)]="model.pictures"
+                     required
+                     #picture="ngModel">
+              <div class="form-control-feedback text-danger "
+                   *ngIf="picture.errors && (picture.dirty || picture.touched)">
+                <p *ngIf="picture.errors?.['required']">Picture is required</p>
+              </div>
+            </div>-->
 
             <div class="d-grid">
-              <button class="btn btn-lg btn-primary btn-update-item text-uppercase fw-bold mb-2"
-                      type="submit" [disabled]="!updateItemForm.form.valid">Update
+              <button type="submit"
+                      class="btn btn-lg btn-primary btn-item-update text-uppercase fw-bold mb-2"
+                      [disabled]="f.invalid">Update
               </button>
             </div>
           </form>

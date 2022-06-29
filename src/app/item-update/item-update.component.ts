@@ -1,37 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-//import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ItemControllerService, ItemUpdateDto} from "../openapi-gen";
 
 @Component({
-  selector: 'app-update-item',
+  selector: 'app-item-update',
   templateUrl: './item-update.component.html',
   styleUrls: ['./item-update.component.scss']
 })
 export class ItemUpdateComponent implements OnInit {
 
-  updateItemForm:any = UntypedFormGroup; //FormGroup;
-  submitted = false;
-  constructor( private formBuilder: UntypedFormBuilder){} //FormBuilder){}
-  get f() { return this.updateItemForm.controls; }
+  constructor(private itemService: ItemControllerService) {}
+
+  ngOnInit(): void {}
+
+  model: ItemUpdateDto = {};
+  @ViewChild('f') form: any;
+
+  itemId: any;
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.updateItemForm.invalid) {
-      return;
-    }
-    if(this.submitted) {
-      alert("Great!!");
-    }
-  }
-  ngOnInit() {
+    if (this.form.valid) {
+      // TODO: remove 'response'?
+      this.itemService.updateItem(this.itemId, this.model).subscribe(response => {
+        console.log("Form Submitted!");
+      })
 
-    this.updateItemForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      zipCode: ['', [Validators.required]],
-      condition: ['', [Validators.required]],
-      category: ['', [Validators.required]]
-    });
+      this.form.reset();
+    }
   }
 }
