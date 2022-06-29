@@ -20,7 +20,7 @@
                  #username="ngModel">
           <div class="form-control-feedback text-danger "
                *ngIf="username.errors && (username.dirty || username.touched)">
-            <p *ngIf="username.errors?.['required']"><small>First name is required</small></p>
+            <p *ngIf="username.errors?.['required']"><small>Username is required</small></p>
           </div>
         </div>
       </div>
