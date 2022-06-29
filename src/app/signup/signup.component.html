@@ -4,46 +4,27 @@
   <form novalidate
         (ngSubmit)="onSubmit()"
         #f="ngForm">
-    <fieldset ngModelGroup="name">
+   <!-- <fieldset ngModelGroup="name"> -->
       <div class="row form-group mt-3">
         <div class="col-sm-3">
-          <label for="firstName" class="fs-6 col-form-label text-black-50">First Name</label>
+          <label for="username" class="fs-6 col-form-label text-black-50">User Name</label>
         </div>
         <div class="col-sm-6">
           <input type="text"
-                 id="firstName"
+                 id="username"
                  autocomplete="on"
                  class="form-control"
-                 name="firstName"
-                 [(ngModel)]="model.firstName"
+                 name="username"
+                 [(ngModel)]="model.username"
                  required
-                 #firstName="ngModel">
+                 #username="ngModel">
           <div class="form-control-feedback text-danger "
-               *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
-            <p *ngIf="firstName.errors?.['required']"><small>First name is required</small></p>
+               *ngIf="username.errors && (username.dirty || username.touched)">
+            <p *ngIf="username.errors?.['required']"><small>First name is required</small></p>
           </div>
         </div>
       </div>
-      <div class="row form-group mt-2">
-        <div class="col-sm-3">
-          <label for="lastName" class="fs-6 col-form-label text-black-50">Last Name</label>
-        </div>
-        <div class="col-sm-6">
-          <input type="text"
-                 id="lastName"
-                 autocomplete="on"
-                 class="form-control"
-                 name="lastName"
-                 [(ngModel)]="model.lastName"
-                 required
-                 #lastName="ngModel">
-          <div class="form-control-feedback text-danger"
-               *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
-            <p *ngIf="lastName.errors?.['required']"><small>Last name is required</small></p>
-          </div>
-        </div>
-      </div>
-    </fieldset>
+    <!-- </fieldset> -->
     <div class="row form-group mt-2">
       <div class="col-sm-3">
         <label for="email" class="fs-6 col-form-label text-black-50">Email</label>
@@ -88,19 +69,23 @@
     </div>
     <div class="row form-group mt-2">
       <div class="col-sm-3">
-        <label for="language" class="fs-6 col-form-label text-black-50">Language</label>
+        <label for="password" class="fs-6 col-form-label text-black-50">Phone Number</label>
       </div>
-      <div class="col-sm-6">
-        <select class="form-control"
-                id="language"
-                name="language"
-                [(ngModel)]="model.language">
-          <option value="">Please select a language</option>
-          <option *ngFor="let lang of langs"
-                  [value]="lang">{{lang}}
-          </option>
-        </select>
+    <div class="col-sm-6">
+      <input type="phoneNumber"
+             id="phoneNumber"
+             autocomplete="on"
+             class="form-control"
+             name="phoneNumber"
+             [(ngModel)]="model.phoneNumber"
+             required
+             pattern="[^ @]*@[^ @]*"
+             #phoneNumber="ngModel">
+      <div class="form-control-feedback text-danger"
+           *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)">
+        <p *ngIf="phoneNumber.errors?.['required']"><small>The phone number is required</small></p>
       </div>
+    </div>
     </div>
     <div class="row form-group mt-4">
       <div class="col-sm-3"><label></label></div>
@@ -113,10 +98,8 @@
     </div>
   </form>
 </div>
-  <!--
   <div class="row mt-4">
-  <h4 class="component-title">Json</h4>
-  <pre><small>{{f.value | json}}</small></pre>
-</div>
--->
+    <h4 class="component-title">Json</h4>
+    <pre><small>{{f.value | json}}</small></pre>
+  </div>
 </div>
