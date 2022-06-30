@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {SignupComponent} from "./signup/signup.component";
 import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
-import {UpdateItemComponent} from "./item/update/update-item.component";
+import {ItemCreationComponent} from "./item-creation/item-creation.component";
+import {ItemUpdateComponent} from "./item-update/item-update.component";
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'item/creation',
+    component: ItemCreationComponent
+  },
+  {
     path: 'item/update',
-    component: UpdateItemComponent
+    component: ItemUpdateComponent
   },
   {
     path: 'home',
