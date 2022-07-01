@@ -11,14 +11,13 @@
  */
 import { PictureDto } from './pictureDto';
 
-
 export interface ItemUpdateDto {
     title?: string;
     description?: string;
     zipCode?: number;
     category?: ItemUpdateDto.CategoryEnum;
     condition?: ItemUpdateDto.ConditionEnum;
-    pictures?: Set<PictureDto>;
+    pictures?: Array<PictureDto>;
 }
 export namespace ItemUpdateDto {
     export type CategoryEnum = 'CHILDREN' | 'CLOTHING' | 'GARDEN' | 'HOUSEHOLD' | 'SPORT' | 'VEHICLE' | 'OTHER';
