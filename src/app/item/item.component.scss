@@ -1,4 +1,24 @@
-#\#itemDetail{
-  width:60%;
+h2, h4 {
+  margin-bottom: 20px;
+}
+
+.container {
+  padding: 50px;
+}
+
+.card {
+  padding: 50px;
+  max-width: 768px;
   margin: auto;
+}
+
+img {
+  max-height: 300px;
+  object-fit: contain;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: justify;
 }

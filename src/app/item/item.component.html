@@ -1,14 +1,19 @@
-<div id="#itemDetail" *ngIf="item" style="width:500px">
-  <!--<p> ID: {{item.id}}</p> -->
-  <h2 style="color:#1976d2;">{{item.title}}</h2>
-  <img src="../../assets/placeholder.png" width="400"/><br><br>
-  <h3 style="font-weight: lighter;font-family:'Roboto', Arial, sans-serif;color:#1976d2;">Description</h3>
-  <p>{{item.description}}</p>
-  <p>Category: {{item.category}}</p>
-  <p>Condition: {{item.condition}}</p>
-  <p>Owner: {{item.userId}}</p>
-  <p>PostalCode: {{item.zipCode}}</p>
-</div>
+<div class="container">
+  <div class="row" *ngIf="item">
+          <div class="card shadow rounded">
+            <!--<p> ID: {{item.id}}</p> -->
+            <h2>{{item.title}}</h2>
+            <img src="{{item.pictures?.[0]?.url || getPlaceholder()}}"/>
+            <h4>Description</h4>
+            <p>{{item.description}}</p>
+            <p>Category: {{item.category}}</p>
+            <p>Condition: {{item.condition}}</p>
+            <p>Owner: {{getUsername(item.userId)}}
+              ({{getPhoneNumber(item.userId)}})</p>
+            <p>Zip code: {{item.zipCode}}</p>
+          </div>
+        </div>
+      </div>
 
 <!--
 <div style="float:left;margin:10px;">
