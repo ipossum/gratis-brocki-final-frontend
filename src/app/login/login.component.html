@@ -3,9 +3,69 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
-          <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
+          <h5 class="card-title text-center mb-5 fw-light fs-5">Login</h5>
           <!-- Sign In Form -->
+          <form novalidate
+                (ngSubmit)="onSubmit()"
+                #f="ngForm">
+
+            <div class="form-floating mb-3">
+              <input type="email"
+                     class="form-control"
+                     id="email"
+                     autocomplete="on"
+                     name="email">
+                     <!--
+                     [(ngModel)]="model.email"
+                     required
+                     #email="ngModel">
+              <div class="form-control-feedback text-danger"
+                   *ngIf="email.errors && (email.dirty || email.touched)">
+                <p *ngIf="email.errors?.['required']">Email is required</p>
+              </div>
+              -->
+              <label for="email">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="password"
+                     class="form-control"
+                     id="password"
+                     autocomplete="on"
+                     name="password">
+                     <!--
+                     [(ngModel)]="model.password"
+                     required
+                     #password="ngModel">
+              <div class="form-control-feedback text-danger"
+                   *ngIf="password.errors && (password.dirty || password.touched)">
+                <p *ngIf="password.errors?.['required']">Password is required</p>
+              </div>
+              -->
+              <label for="email">Password</label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      type="submit">Login
+              </button>
+              <!--
+              <div class="text-center">
+                <a class="small" href="#">Forgot password?</a>
+              </div>
+              -->
+            </div>
+
+          </form>
+
+
+
+
+
+
+          <!--
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
             <div class="form-floating mb-3">
               <input type="email" class="form-control" autocomplete="on" id="floatingInput"
                      placeholder="name@example.com" formControlName="email"
@@ -17,6 +77,7 @@
               </div>
               <label for="floatingInput">Email address</label>
             </div>
+
             <div class="form-floating mb-3">
               <input type="password" class="form-control" autocomplete="on"
                      id="floatingPassword" placeholder="Password"
@@ -26,6 +87,7 @@
               </div>
               <label for="floatingPassword">Password</label>
             </div>
+
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" value=""
                      id="rememberPasswordCheck">
@@ -33,15 +95,18 @@
                 Remember password
               </label>
             </div>
+
             <div class="d-grid">
               <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                      type="submit">Sign in
+                      type="submit">Login
               </button>
               <div class="text-center">
                 <a class="small" href="#">Forgot password?</a>
               </div>
+
             </div>
           </form>
+          -->
         </div>
       </div>
     </div>
