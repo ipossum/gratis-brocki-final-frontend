@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-//import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {UserControllerService} from "../openapi-gen";
 
 @Component({
   selector: 'app-login',
@@ -8,27 +7,22 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  constructor(private userService: UserControllerService) {}
 
-  loginForm:any = UntypedFormGroup; //FormGroup;
-  submitted = false;
-  constructor( private formBuilder: UntypedFormBuilder){} //FormBuilder){}
-  get f() { return this.loginForm.controls; }
+  ngOnInit(): void {}
+
+  //model: UserLoginDto = {};
+  @ViewChild('f') form: any;
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-    if(this.submitted) {
-      alert("Great!!");
-    }
-  }
-  ngOnInit() {
+    if (this.form.valid) {
+      // TODO: remove 'response'e?
+      /*this.userService.loginUser(this.model).subscribe(response => {
+        console.log("Form Submitted!");
+      })
+      */
 
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
-    });
+      this.form.reset();
+    }
   }
 }
