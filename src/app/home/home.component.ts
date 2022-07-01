@@ -20,4 +20,8 @@ export class HomeComponent implements OnInit {
   private getItems() {
     this.itemService.getAllItems().subscribe(items => this.items = items);
   }
+
+  getPlaceholder() {
+    return "./assets/placeholder.png";
+}
 }

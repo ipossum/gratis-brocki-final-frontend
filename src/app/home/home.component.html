@@ -1,8 +1,17 @@
-<div *ngFor="let item of items" style="width: 300px; border-style: outset; float: left; margin:10px; margin-top:20px;padding:10px;">
-  <h2 >{{item.title}}</h2>
-  <img src="./assets/item.png" width="100px" height="100px"/><br><br>
-  <p>Description: {{item.description}}</p>
-  <p>Owner: {{item.userId}}</p>
-  <p>ZipCode: {{item.zipCode}}</p>
-  <a [routerLink]="['/items', item.id]"><button>Details</button></a>
-</div>
+<div class="container">
+  <div class="row">
+      <div class="card shadow" *ngFor="let item of items">
+
+        <div class="container-picture">
+        <a [routerLink]="['/items', item.id]">
+          <img class="card-img-top" src="{{item.pictures?.[0]?.url || getPlaceholder()}}">
+        </a>
+        </div>
+
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h4 class="card-title">{{item.title}}</h4>
+          <p class="card-text">Zipcode: {{item.zipCode}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
