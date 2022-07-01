@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ItemDto } from "../openapi-gen/model/itemDto";
-import { ItemControllerService } from "../openapi-gen/api/itemController.service";
-import {ItemUpdateDto} from "../openapi-gen/model/itemUpdateDto";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ItemDto, ItemControllerService, ItemUpdateDto, UserControllerService, UserDto} from "../openapi-gen";
 
 @Component({
   selector: 'app-item',
@@ -11,11 +9,12 @@ import {ItemUpdateDto} from "../openapi-gen/model/itemUpdateDto";
 })
 export class ItemComponent implements OnInit {
   item: ItemDto = {};
+  user: UserDto = {};
   uItem: ItemUpdateDto = {};
   edit = true;
   add = false;
 
-  constructor(private route: ActivatedRoute, private itemService: ItemControllerService) {
+  constructor(private route: ActivatedRoute, private itemService: ItemControllerService, private userService: UserControllerService) {
   }
 
   ngOnInit(): void {
@@ -29,69 +28,94 @@ export class ItemComponent implements OnInit {
       this.item = response;
     });
   }
+
+  getPlaceholder() {
+    return "./assets/placeholder.png";
+  }
+
+  getUsername(userId: any) {
+    this.userService.getUser(userId).subscribe((response: UserDto) => {
+      this.user = response;
+    });
+    if (this.user.username == undefined){
+      return "unknown";
+    }
+    return this.user.username;
+  }
+
+  getPhoneNumber(userId: any) {
+    this.userService.getUser(userId).subscribe((response: UserDto) => {
+      this.user = response;
+    });
+
+    if (this.user.phoneNumber == undefined){
+      return "unknown";
+    }
+    return this.user.phoneNumber;
+  }
 }
 
-  /*
-  addItem() {
-    const data = {
-      title: this.item.title,
-      id: this.item.id,
-      description: this.item.description,
-      picture: this.item.pictures,
-      category: this.item.category,
-      condition: this.item.condition,
-      messages: this.item.messages,
-      owner: this.item.userId,
-      postalCode: this.item.zipCode
-    };
-    this.itemService.createNewItem(data).subscribe(response => {
-      console.log(response)
-      this.itemService.getAllItems();
-    });
-  }
-
-  setItemEdit(item: ItemDto) {
-    this.uItem.title = item.title;
-    //this.uItem.id = item.id;
-    this.uItem.description = item.description;
-    this.uItem.pictures = item.pictures;
-    this.uItem.category = item.category;
-    this.uItem.condition = item.condition;
-    //this.uItem.messages = item.messages;
-    //this.uItem.userId = item.userId;
-    this.uItem.zipCode = item.zipCode;
-
-    this.edit = false;
-    this.add = true;
-  }
-
-  resetValues() {
-    this.item.title = "";
-    this.item.id = undefined;
-    this.item.description = '';
-    this.item.pictures = undefined;
-    this.item.category = undefined;
-    this.item.condition = undefined;
-    this.item.messages = undefined;
-    this.item.userId = undefined;
-    this.item.zipCode = undefined;
-
-    this.edit = true;
-    this.add = false;
-  }
-
-  removeItem(item: ItemDto) {
-    const id = item.id;
-    console.log(item)
-    this.itemService.deleteItem(id,undefined,undefined,undefined).subscribe(item => console.log(item));
+/*
+addItem() {
+  const data = {
+    title: this.item.title,
+    id: this.item.id,
+    description: this.item.description,
+    picture: this.item.pictures,
+    category: this.item.category,
+    condition: this.item.condition,
+    messages: this.item.messages,
+    owner: this.item.userId,
+    postalCode: this.item.zipCode
+  };
+  this.itemService.createNewItem(data).subscribe(response => {
+    console.log(response)
     this.itemService.getAllItems();
-  }
+  });
+}
 
-  updateItem(){
-    this.itemService.updateItem(0, this.uItem, undefined).subscribe(response => console.log(response));
-    this.itemService.getAllItems()
-    this.resetValues()
-  }
+setItemEdit(item: ItemDto) {
+  this.uItem.title = item.title;
+  //this.uItem.id = item.id;
+  this.uItem.description = item.description;
+  this.uItem.pictures = item.pictures;
+  this.uItem.category = item.category;
+  this.uItem.condition = item.condition;
+  //this.uItem.messages = item.messages;
+  //this.uItem.userId = item.userId;
+  this.uItem.zipCode = item.zipCode;
+
+  this.edit = false;
+  this.add = true;
+}
+
+resetValues() {
+  this.item.title = "";
+  this.item.id = undefined;
+  this.item.description = '';
+  this.item.pictures = undefined;
+  this.item.category = undefined;
+  this.item.condition = undefined;
+  this.item.messages = undefined;
+  this.item.userId = undefined;
+  this.item.zipCode = undefined;
+
+  this.edit = true;
+  this.add = false;
+}
+
+removeItem(item: ItemDto) {
+  const id = item.id;
+  console.log(item)
+  this.itemService.deleteItem(id,undefined,undefined,undefined).subscribe(item => console.log(item));
+  this.itemService.getAllItems();
+}
+
+updateItem(){
+  this.itemService.updateItem(0, this.uItem, undefined).subscribe(response => console.log(response));
+  this.itemService.getAllItems()
+  this.resetValues()
+}
 }
 */
 
