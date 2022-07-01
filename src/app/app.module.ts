@@ -13,6 +13,7 @@ import { ItemUpdateComponent } from './item-update/item-update.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
+import { SignupUpdateComponent } from './signup-update/signup-update.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     ItemCreationComponent,
     ItemUpdateComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SignupUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'items/:itemId', component: ItemComponent },
+      { path: 'signup/update/:userId', component: SignupUpdateComponent },
     ])
   ],
   providers: [],

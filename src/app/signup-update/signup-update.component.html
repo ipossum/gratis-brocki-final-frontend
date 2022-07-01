@@ -3,7 +3,7 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
-          <h5 class="card-title text-center mb-5 fw-light fs-5">Signup</h5>
+          <h5 class="card-title text-center mb-5 fw-light fs-5">User Details</h5>
           <!-- Item Update Form -->
           <form novalidate
                 (ngSubmit)="onSubmit()"
@@ -26,13 +26,13 @@
 
             <div class="form-floating mb-3">
               <input type="email"
-                    class="form-control"
-                    id="email"
-                    autocomplete="on"
-                    name="email"
-                    [(ngModel)]="model.email"
-                    required
-                    #email="ngModel">
+                     class="form-control"
+                     id="email"
+                     autocomplete="on"
+                     name="email"
+                     [(ngModel)]="model.email"
+                     required
+                     #email="ngModel">
               <div class="form-control-feedback text-danger"
                    *ngIf="email.errors && (email.dirty || email.touched)">
                 <p *ngIf="email.errors?.['required']">Email is required</p>
@@ -75,7 +75,7 @@
             <div class="d-grid">
               <button type="submit"
                       class="btn btn-lg btn-primary btn-item-update text-uppercase fw-bold mb-2"
-                      [disabled]="f.invalid">Signup
+                      [disabled]="f.invalid">Update User
               </button>
             </div>
           </form>

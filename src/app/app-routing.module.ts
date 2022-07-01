@@ -5,11 +5,16 @@ import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
 import {ItemCreationComponent} from "./item-creation/item-creation.component";
 import {ItemUpdateComponent} from "./item-update/item-update.component";
+import {SignupUpdateComponent} from "./signup-update/signup-update.component";
 
 const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'signup/update/:id',
+    component: SignupUpdateComponent
   },
   {
     path: 'login',
