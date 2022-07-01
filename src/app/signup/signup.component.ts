@@ -16,12 +16,12 @@ export class SignupComponent implements OnInit {
   @ViewChild('f') form: any;
 
   onSubmit() {
-    //if (this.form.valid) {
+    if (this.form.valid) {
       this.userService.registerNewUser(this.model).subscribe(response => {
         console.log("Form Submitted!");
       })
       this.form.reset();
-   // }
+    }
   }
 }
 
