@@ -4,7 +4,6 @@
   <form novalidate
         (ngSubmit)="onSubmit()"
         #f="ngForm">
-   <!-- <fieldset ngModelGroup="name"> -->
       <div class="row form-group mt-3">
         <div class="col-sm-3">
           <label for="username" class="fs-6 col-form-label text-black-50">User Name</label>
@@ -18,8 +17,8 @@
                  [(ngModel)]="model.username"
                  required
                  #username="ngModel">
-          <div class="form-control-feedback text-danger "
-               *ngIf="username.errors && (username.dirty || username.touched)">
+           <div class="form-control-feedback text-danger "
+                *ngIf="username.errors && (username.dirty || username.touched)">
             <p *ngIf="username.errors?.['required']"><small>Username is required</small></p>
           </div>
         </div>
@@ -90,16 +89,15 @@
     <div class="row form-group mt-4">
       <div class="col-sm-3"><label></label></div>
       <div class="col-sm-6">
-        <button type="submit"
-                class="btn btn-primary float-end"
-                [disabled]="f.invalid">Submit
+        <button type="submit" class="btn btn-primary float-end">
+          Submit
         </button>
       </div>
     </div>
   </form>
 </div>
-  <div class="row mt-4">
+  <!--<div class="row mt-4">
     <h4 class="component-title">Json</h4>
     <pre><small>{{f.value | json}}</small></pre>
-  </div>
+  </div>-->
 </div>
