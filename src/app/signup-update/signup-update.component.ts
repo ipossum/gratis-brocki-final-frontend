@@ -27,9 +27,10 @@ export class SignupUpdateComponent implements OnInit {
     if (this.form.valid) {
       this.activatedRoute.params.subscribe(p => {
         this.userService.updateUser(p['id'], this.model).subscribe(response => {
-          alert("Update successful!");
+          console.log("Update successful!");
         })
       });
+      this.router.navigate(['/home']);
     }
   }
 }
