@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {ItemDto, ItemControllerService, ItemUpdateDto, UserControllerService, UserDto} from "../openapi-gen";
 
 @Component({
@@ -10,17 +10,17 @@ import {ItemDto, ItemControllerService, ItemUpdateDto, UserControllerService, Us
 export class ItemComponent implements OnInit {
   item: ItemDto = {};
   user: UserDto = {};
-  uItem: ItemUpdateDto = {};
-  edit = true;
-  add = false;
 
-  constructor(private route: ActivatedRoute, private itemService: ItemControllerService, private userService: UserControllerService) {
+  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemControllerService, private userService: UserControllerService) {
   }
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const itemIdFromRoute = Number(routeParams.get('itemId'));
-    this.getItem(itemIdFromRoute);
+    this.route.params.subscribe(p => {
+      this.itemService.getItem(p['id']).subscribe( response => {
+        this.item = response;
+        this.getUsername(this.item.userId);
+      });
+    });
   }
 
   private getItem(id: number) {
@@ -53,70 +53,8 @@ export class ItemComponent implements OnInit {
     }
     return this.user.phoneNumber;
   }
+
+  updateItem(){
+    this.router.navigate(['item/update/' + this.route.snapshot.paramMap.get('id')]);
+  }
 }
-
-/*
-addItem() {
-  const data = {
-    title: this.item.title,
-    id: this.item.id,
-    description: this.item.description,
-    picture: this.item.pictures,
-    category: this.item.category,
-    condition: this.item.condition,
-    messages: this.item.messages,
-    owner: this.item.userId,
-    postalCode: this.item.zipCode
-  };
-  this.itemService.createNewItem(data).subscribe(response => {
-    console.log(response)
-    this.itemService.getAllItems();
-  });
-}
-
-setItemEdit(item: ItemDto) {
-  this.uItem.title = item.title;
-  //this.uItem.id = item.id;
-  this.uItem.description = item.description;
-  this.uItem.pictures = item.pictures;
-  this.uItem.category = item.category;
-  this.uItem.condition = item.condition;
-  //this.uItem.messages = item.messages;
-  //this.uItem.userId = item.userId;
-  this.uItem.zipCode = item.zipCode;
-
-  this.edit = false;
-  this.add = true;
-}
-
-resetValues() {
-  this.item.title = "";
-  this.item.id = undefined;
-  this.item.description = '';
-  this.item.pictures = undefined;
-  this.item.category = undefined;
-  this.item.condition = undefined;
-  this.item.messages = undefined;
-  this.item.userId = undefined;
-  this.item.zipCode = undefined;
-
-  this.edit = true;
-  this.add = false;
-}
-
-removeItem(item: ItemDto) {
-  const id = item.id;
-  console.log(item)
-  this.itemService.deleteItem(id,undefined,undefined,undefined).subscribe(item => console.log(item));
-  this.itemService.getAllItems();
-}
-
-updateItem(){
-  this.itemService.updateItem(0, this.uItem, undefined).subscribe(response => console.log(response));
-  this.itemService.getAllItems()
-  this.resetValues()
-}
-}
-*/
-
-

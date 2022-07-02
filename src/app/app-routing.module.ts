@@ -6,6 +6,7 @@ import {HomeComponent} from "./home/home.component";
 import {ItemCreationComponent} from "./item-creation/item-creation.component";
 import {ItemUpdateComponent} from "./item-update/item-update.component";
 import {SignupUpdateComponent} from "./signup-update/signup-update.component";
+import {ItemComponent} from "./item/item.component";
 
 const routes: Routes = [
   {
@@ -25,8 +26,12 @@ const routes: Routes = [
     component: ItemCreationComponent
   },
   {
-    path: 'item/update',
+    path: 'item/update/:id',
     component: ItemUpdateComponent
+  },
+  {
+    path: 'items/:id',
+    component: ItemComponent
   },
   {
     path: 'home',
