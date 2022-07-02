@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row" *ngIf="item">
           <div class="card shadow rounded">
-            <!--<p> ID: {{item.id}}</p> -->
             <h2>{{item.title}}</h2>
             <img src="{{item.pictures?.[0]?.url || getPlaceholder()}}"/>
             <h4>Description</h4>
             <p>{{item.description}}</p>
             <p>Category: {{item.category}}</p>
             <p>Condition: {{item.condition}}</p>
-            <!--<p>Owner: {{getUsername(item.userId)}}
-              ({{getPhoneNumber(item.userId)}})</p> -->
-            <p>Zip code: {{item.zipCode}}</p>
+            <p>Owner: {{user.username}} - {{user.phoneNumber}} - {{user.email}}</p>
+            <p>Zip Code: {{item.zipCode}}</p>
             <div class="col">
               <button class="btn btn-primary" (click)="updateItem()">Update Item</button>
             </div>

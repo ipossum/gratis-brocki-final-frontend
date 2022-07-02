@@ -10,8 +10,8 @@ import {ItemDto, ItemControllerService, ItemUpdateDto, UserControllerService, Us
 export class ItemComponent implements OnInit {
   item: ItemDto = {};
   user: UserDto = {};
-  edit = true;
-  add = false;
+  //edit = true;
+  //add = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemControllerService, private userService: UserControllerService) {
   }
@@ -20,6 +20,7 @@ export class ItemComponent implements OnInit {
     this.route.params.subscribe(p => {
       this.itemService.getItem(p['id']).subscribe( response => {
         this.item = response;
+        this.getUsername(this.item.userId);
       });
     });
   }
@@ -38,10 +39,11 @@ export class ItemComponent implements OnInit {
     this.userService.getUser(userId).subscribe((response: UserDto) => {
       this.user = response;
     });
+    /*
     if (this.user.username == undefined){
       return "unknown";
     }
-    return this.user.username;
+    return this.user.username; */
   }
 
   getPhoneNumber(userId: any) {
