@@ -11,7 +11,9 @@
             <!--<p>Owner: {{getUsername(item.userId)}}
               ({{getPhoneNumber(item.userId)}})</p> -->
             <p>Zip code: {{item.zipCode}}</p>
-            <button (click)="updateItem()">Update Item</button>
+            <div class="col">
+              <button class="btn btn-primary" (click)="updateItem()">Update Item</button>
+            </div>
           </div>
         </div>
       </div>
