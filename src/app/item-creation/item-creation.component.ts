@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ItemControllerService, ItemCreationDto} from "../openapi-gen";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item-creation',
@@ -8,7 +9,7 @@ import {ItemControllerService, ItemCreationDto} from "../openapi-gen";
 })
 export class ItemCreationComponent implements OnInit {
 
-  constructor(private itemService: ItemControllerService) {}
+  constructor(private itemService: ItemControllerService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -17,12 +18,13 @@ export class ItemCreationComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      // TODO: remove 'response'?
+
+
+
       this.itemService.createNewItem(this.model).subscribe(response => {
         console.log("Form Submitted!");
+        this.router.navigate(['item/update/' + response.id]);
       })
-
-      this.form.reset();
     }
   }
 }
