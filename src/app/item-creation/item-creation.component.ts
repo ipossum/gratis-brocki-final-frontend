@@ -18,9 +18,6 @@ export class ItemCreationComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-
-
-
       this.itemService.createNewItem(this.model).subscribe(response => {
         console.log("Form Submitted!");
         this.router.navigate(['item/update/' + response.id]);
