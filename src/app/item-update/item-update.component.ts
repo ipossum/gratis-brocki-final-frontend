@@ -14,6 +14,7 @@ export class ItemUpdateComponent implements OnInit {
   model: ItemUpdateDto = {};
   @ViewChild('f') form: any;
   itemId: any;
+  userId: number | undefined;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(p => {
