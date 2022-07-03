@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {SignupComponent} from "./signup/signup.component";
 import {LoginComponent} from "./login/login.component";
 import {HomeComponent} from "./home/home.component";
@@ -7,6 +7,7 @@ import {ItemCreationComponent} from "./item-creation/item-creation.component";
 import {ItemUpdateComponent} from "./item-update/item-update.component";
 import {SignupUpdateComponent} from "./signup-update/signup-update.component";
 import {ItemComponent} from "./item/item.component";
+import {ImageUploadComponent} from "./image-upload/image-upload.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'images',
+    component: ImageUploadComponent
   },
 ];
 
