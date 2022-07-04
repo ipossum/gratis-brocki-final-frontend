@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { MessageDto } from './messageDto';
-import { PictureDto } from './pictureDto';
+import {MessageDto} from './messageDto';
+import {FileDto} from "./fileDto";
 
 export interface ItemDto {
     id?: number;
@@ -20,7 +20,7 @@ export interface ItemDto {
     category?: ItemDto.CategoryEnum;
     condition?: ItemDto.ConditionEnum;
     userId?: number;
-    pictures?: Array<PictureDto>;
+    pictures?: Array<FileDto>;
     messages?: Array<MessageDto>;
 }
 export namespace ItemDto {

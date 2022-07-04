@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemDto } from "./openapi-gen/model/itemDto";
-import { ItemControllerService } from "./openapi-gen/api/itemController.service";
-import {MessageDto, PictureDto} from "./openapi-gen";
+import {Component, OnInit} from '@angular/core';
+import {ItemDto} from "./openapi-gen";
+import {ItemControllerService} from "./openapi-gen";
 
 @Component({
   selector: 'app-root',

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PictureDto } from './pictureDto';
+import {FileDto} from "./fileDto";
 
 export interface ItemCreationDto {
     title?: string;
@@ -18,7 +18,7 @@ export interface ItemCreationDto {
     category?: ItemCreationDto.CategoryEnum;
     condition?: ItemCreationDto.ConditionEnum;
     userId?: number;
-    pictures?: Array<PictureDto>;
+    pictures?: Array<FileDto>;
 }
 export namespace ItemCreationDto {
   export type CategoryEnum = 'CHILDREN' | 'CLOTHING' | 'GARDEN' | 'HOUSEHOLD' | 'SPORT' | 'VEHICLE' | 'OTHER';

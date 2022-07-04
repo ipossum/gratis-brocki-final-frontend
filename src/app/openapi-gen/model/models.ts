@@ -11,3 +11,5 @@ export * from './user';
 export * from './userCreationDto';
 export * from './userDto';
 export * from './userUpdateDto';
+export * from './fileDto';
+export * from './fileResponseDto';

@@ -10,10 +10,9 @@
  * Do not edit the class manually.
  */
 
-export interface FileDto {
-  id?: number;
+export interface FileResponseDto {
   filename?: string;
+  url?: string;
   filetype?: string;
-  data?: Array<string>;
-  itemId?: number;
+  size?: number;
 }
