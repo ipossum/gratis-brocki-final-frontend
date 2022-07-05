@@ -27,6 +27,7 @@ export class ItemComponent implements OnInit {
         this.getUsername(this.item.userId);
       });
     });
+    this.getImage(2);
     }
 
   private getItem(id: number) {
@@ -35,7 +36,7 @@ export class ItemComponent implements OnInit {
     });
   }
 
-  getImage(imageId: any) {
+  getImage(imageId: number) {
       this.httpClient.get('http://localhost:8080/api/v1/files/' + imageId)
         .subscribe(
           response => {
