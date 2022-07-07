@@ -5,8 +5,6 @@
       <!--<img src="{{item.pictures?.[0]?.url || getPlaceholder()}}"/>-->
       <div *ngIf=retrievedImage>
         <img [src]="retrievedImage">
-        <!--<img [src]="getImage(item.pictures[0].id)">-->
-        <!-- How should we call the method getImage()?-->
       </div>
       <h4>Description</h4>
       <p>{{item.description}}</p>
