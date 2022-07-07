@@ -1,27 +1,59 @@
-# GratisBrockiFinalFrontend
+# GratisBrocki
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+A website that can be used freely to share or to give away all kinds of goods for free. Some of the main goals behind the project are as follows:
+* to make sustainable resource use easier
+* to help transition to a minimalist lifestyle
+* to facilitate giving and sharing without financial motives
+* to create a free and simple, but effective website
 
-## Development server
+GratisBrocki was developed as part of a student project on object-oriented programming.
+We hope you enjoy it. We did :-)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Go [here](https://github.com/ipossum/gratis-brocki-final-backend) to find the frontend repository.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Use Project from Version Control in your IntelliJ Idea.
+Just copy the link from git and paste it into Idea.
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+There are different ways to use this application. However, you will need the backend to make it work properly.
+You will find it [here](https://github.com/ipossum/gratis-brocki-backend)
 
-## Running unit tests
+## Contributing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Fork it!
+* Create your feature branch: `git checkout -b fb-description`
+* Commit your changes: `git commit -am 'Add some feature'`
+* Push to the branch: `git push origin fb-description`
+* Submit a pull request!
 
-## Running end-to-end tests
+## Description/Documentation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The frontend requires a working backend. The backend accesses an H2 database. The database holds data about users,
+items, pictures and messages. By this stage User, Item and Picture are implemented in
+the code and can be manipulated via the API.
 
-## Further help
+## Functionality
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The following functionality is implemented in the frontend:
+
+* Show all items
+
+* Show item details
+
+* Update item
+
+* Create item
+
+* Signup (create user)
+
+* Update user
+
+
+
+## Caution!
+
+This version of the application is for testing purposes only. Some components such as authentication and picture upload are
+yet to be implemented. This should be extended in the near future, so that "GratisBrocki" can offer its services to the public.
