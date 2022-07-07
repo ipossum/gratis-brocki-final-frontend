@@ -117,20 +117,14 @@
               <label for="userid">User ID</label>
             </div>
 
-            <!--<div class="mb-3">
-              <label for="picture" class="form-label">Replace picture</label>
+            <div class="mb-3">
+              <label for="picture" class="form-label">Select picture</label>
               <input type="file"
                      class="form-control"
                      id="picture"
                      name="picture"
-                     [(ngModel)]="model.pictures"
-                     required
-                     #picture="ngModel">
-              <div class="form-control-feedback text-danger "
-                   *ngIf="picture.errors && (picture.dirty || picture.touched)">
-                <p *ngIf="picture.errors?.['required']">Picture is required</p>
-              </div>
-            </div>-->
+                     (change)="onFileChanged($event)">
+            </div>
 
             <div class="d-grid">
               <button type="submit"
